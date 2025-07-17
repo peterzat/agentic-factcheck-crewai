@@ -2,6 +2,38 @@
 
 This project uses a team of AI assistants built with CrewAI to research, summarize, and fact-check news on any given topic. You can simply provide a topic, and the AI team will deliver a concise, verified summary.
 
+## Setup Instructions
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/peterzat/agentic-factcheck-crewai.git
+cd agentic-factcheck-crewai
+```
+
+### 2. Create Virtual Environment
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure Environment Variables
+Copy the example environment file and add your OpenAI API key:
+```bash
+cp env.example .env
+```
+
+Then edit `.env` and add your OpenAI API key:
+```
+OPENAI_API_KEY=your_actual_openai_api_key_here
+```
+
+You can get an OpenAI API key from: https://platform.openai.com/api-keys
+
 ## How It Works: A Team of Digital Assistants
 
 Imagine you have a team of three expert assistants working for you. Each has a specific job, and they work together to give you the best possible information. That's how this project works, using AI "agents" to handle each step of the process.
@@ -12,11 +44,11 @@ This is your expert researcher. When you provide a topic, the News Scout immedia
 
 ### 2. The Summarizer (SummarizerAgent)
 
-Once the News Scout has found the articles, the Summarizer takes over. This agent reads through all the information and writes a short, easy-to-understand summary. It captures the main ideas and key points, so you don't have to read through pages of text. Think of it as a student who reads a long chapter and gives you the cliff notes.
+Once the News Scout has found the articles, the Summarizer takes over. This agent reads through all the information and creates a clear, concise summary of the main points. Think of it as having a skilled editor who can take complex news stories and turn them into an easy-to-understand overview.
 
 ### 3. The Fact-Checker (FactCheckerAgent)
 
-After the summary is written, the Fact-Checker steps in. This is your meticulous detective. It carefully reviews the summary, identifies the key factual claims, and then does its own research to verify them. It will tell you if a claim is supported by the facts, contradicted, or if there isn't enough information to be sure.
+The most important member of the team! The Fact-Checker takes the summary and identifies specific claims that need verification. It then conducts additional searches to check whether each claim is supported by evidence, contradicted, or simply unconfirmed. This agent acts like an investigative journalist, making sure the information is reliable.
 
 ## The Workflow in Action
 
@@ -39,4 +71,31 @@ Then, run the script with your topic in quotes:
 
 ```bash
 python news_checker.py "your topic here"
-``` 
+```
+
+Or use the convenient bash script:
+
+```bash
+./fact-check.sh "your topic here"
+```
+
+## Example Usage
+
+```bash
+./fact-check.sh "latest developments in renewable energy"
+```
+
+This will return a comprehensive report with:
+- Top 3 relevant news articles
+- A clear summary of the main developments
+- Fact-checking analysis of key claims
+
+## What Makes This Special?
+
+**Transparency**: You can see exactly what each agent is doing and how they reach their conclusions.
+
+**Verification**: Unlike simple news aggregators, this system actively fact-checks the information it provides.
+
+**Comprehensive**: You get both the big picture (summary) and the details (original articles and fact-checks).
+
+**Easy to Use**: Just provide a topic, and the AI team does the rest. 
