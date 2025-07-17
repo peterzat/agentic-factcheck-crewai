@@ -1,0 +1,16 @@
+Let's vibe code a simple agentic workflow using CrewAI, OpenAI API, and duckduckgo-search.  
+
+💡 Project: "Summarize & Fact-Check News"  
+
+Here's the workflow:  
+1. **SearcherAgent**: Given a topic, search DuckDuckGo for the top 3 relevant news articles and return the titles and snippets.  
+2. **SummarizerAgent**: Summarize the main ideas from the search results using OpenAI's GPT API.  
+3. **FactCheckerAgent**: Identify 2-3 factual claims from the summary and verify them by running new DuckDuckGo searches. Mark if each fact is supported, contradicted, or unconfirmed.  
+
+Use **CrewAI** to define and orchestrate the agents, with simple sequential task handoff.  
+Use **duckduckgo_search.DDGS()** for searches.  
+Use **OpenAI GPT-4** with minimal system prompts for summarization and fact-checking steps.  
+
+Make it easy to run from a Python script: `python news_checker.py "Ukraine war latest"`  
+
+Keep dependencies minimal. Use standard logging and printouts to show workflow steps.  
